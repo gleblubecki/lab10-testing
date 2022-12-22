@@ -13,7 +13,7 @@ public class CaterpillarItemPage extends AbstractPage{
     @FindBy(xpath = "//*[@id=\"swatch-select a size-XL\"]")
     private WebElement buttonSize;
 
-    @FindBy(xpath = "//*[@id=\"dimensions-combined-44270W\"]/ul/li/div/ul/li[5]")
+    @FindBy(xpath = "//label[@data-value='XL']")
     private WebElement addToCartButton;
 
     public CaterpillarItemPage(WebDriver driver) {
