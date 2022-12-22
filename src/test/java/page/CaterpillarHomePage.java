@@ -35,7 +35,7 @@ public class CaterpillarHomePage extends AbstractPage {
 
     public String getArticleOfItem() {
         WebElement idOfItem =  new WebDriverWait(webDriver, waitWebDriver)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[@data-stock-number='PA1310084-10121']")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id=\"dwfrm_product_addtocart_d0vttxmgtksv\"]/fieldset/div[1]/div[1]/div[1]")));
         new WebDriverWait(webDriver, waitWebDriver)
                 .until(ExpectedConditions.visibilityOf(idOfItem));
         return idOfItem.getText();

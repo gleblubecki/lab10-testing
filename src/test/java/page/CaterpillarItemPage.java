@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CaterpillarItemPage extends AbstractPage{
     public static String CATERPILLAR_ITEM_PAGE_URL = "https://www.timberland.com/shop/mens-davis-square-chukka-shoes-blue-a1sf3019";
 
-    @FindBy(xpath = "//label[@data-value='XL']")
+    @FindBy(xpath = "//*[@id=\"swatch-select a size-XL\"]")
     private WebElement buttonSize;
 
     @FindBy(xpath = "//button[@id='add-to-cart']")
