@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class CaterpillarHomePage extends AbstractPage {
     public static String CATERPILLAR_HOME_PAGE_URL = "https://www.catfootwear.com/US/en/home";
 
-    @FindBy(xpath = "//input[@name='simplesearch simple-search-input valid']")
+    @FindBy(xpath = "//input[@class='simplesearch simple-search-input']")
     private WebElement searchBox;
 
     public CaterpillarHomePage(WebDriver driver) {
@@ -21,7 +21,7 @@ public class CaterpillarHomePage extends AbstractPage {
     public CaterpillarHomePage openPage() {
         webDriver.get(CATERPILLAR_HOME_PAGE_URL);
         new WebDriverWait(webDriver, waitWebDriver)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@name='searchTerm']")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//input[@class='simplesearch simple-search-input']")));
         return this;
     }
 
@@ -35,7 +35,7 @@ public class CaterpillarHomePage extends AbstractPage {
 
     public String getArticleOfItem() {
         WebElement idOfItem =  new WebDriverWait(webDriver, waitWebDriver)
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[@class='product-style-js']")));
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h1[@data-stock-number='PA1310084-10121']")));
         new WebDriverWait(webDriver, waitWebDriver)
                 .until(ExpectedConditions.visibilityOf(idOfItem));
         return idOfItem.getText();
