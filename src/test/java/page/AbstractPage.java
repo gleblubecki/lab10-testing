@@ -7,8 +7,6 @@ import java.time.Duration;
 
 public abstract class AbstractPage {
     protected WebDriver webDriver;
-    protected final Duration WAIT_TIMEOUT_SECONDS = Duration.ofSeconds(10);
-
     protected final Duration waitWebDriver = Duration.ofSeconds(5);
 
     protected abstract AbstractPage openPage();

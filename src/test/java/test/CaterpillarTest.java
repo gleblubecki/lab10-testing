@@ -1,13 +1,16 @@
+package test;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import page.LacosteItemPage;
+import page.CaterpillarHomePage;
+import page.CaterpillarItemPage;
 
-public class LacosteTest {
-    public static String EXPECTED_MESSADGE = "0";
+public class CaterpillarTest {
+    public static String EXPECTED_NAME = "Women's Triton Soft Shell Jacket";
     public static String EXPECTED_AMOUNT = "1";
 
     private static WebDriver driver;
@@ -20,9 +23,8 @@ public class LacosteTest {
 
     @Test
     public void testAddItemToCart() {
-        String amountOfProducts = new LacosteItemPage(driver)
+        String amountOfProducts = new CaterpillarItemPage(driver)
                 .openPage()
-                .closeCookies()
                 .clickSizeButton()
                 .addItemToCart()
                 .getAmountOfProducts();
@@ -30,13 +32,12 @@ public class LacosteTest {
     }
 
     @Test
-    public void getErrorMessadge() {
-        String amountOfProducts = new LacosteItemPage(driver)
+    public void testSearchItemByArticle() {
+        String idOfItem = new CaterpillarHomePage(driver)
                 .openPage()
-                .closeCookies()
-                .addItemToCart()
-                .tryGetErrorMessadge();
-        Assert.assertEquals(amountOfProducts, EXPECTED_MESSADGE);
+                .searchForTerms(EXPECTED_NAME)
+                .getArticleOfItem();
+        Assert.assertEquals(idOfItem, EXPECTED_NAME);
     }
 
     @AfterMethod(alwaysRun = true)
@@ -45,4 +46,3 @@ public class LacosteTest {
         driver = null;
     }
 }
-
